@@ -26,6 +26,11 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "prettier": "^3.1.1"
+    "@types/debug": "^4.1.12",
+    "chalk": "^4",
+    "debug": "^4.3.4",
+    "dotenv": "^16.3.1",
+    "prettier": "^3.1.1",
+    "telegraf": "^4.15.3"
   }
 }
