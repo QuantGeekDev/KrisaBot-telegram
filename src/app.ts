@@ -5,6 +5,7 @@ import { type Command } from "./commands/Command.class.js";
 import { StartCommand } from "./commands/start.command.js";
 import { Bot as GrammyBot } from "grammy";
 import { RandomKrisaCommand } from "./commands/RandomKrisa.command.js";
+import { FindKrisaCommand } from "./commands/FindKrisa.command.js";
 
 class Bot {
   bot: GrammyBot;
@@ -18,6 +19,7 @@ class Bot {
     this.commands = [
       new StartCommand(this.bot),
       new RandomKrisaCommand(this.bot),
+      new FindKrisaCommand(this.bot),
     ];
     for (const command of this.commands) {
       command.handle();
