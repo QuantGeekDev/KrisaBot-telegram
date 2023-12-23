@@ -25,7 +25,15 @@ const useKrisaApi = () => {
     }
   };
 
-  return { getKrisas };
+  const getKrisaById = async (id: string): Promise<KrisaStructure | void> => {
+    try {
+      await axios.get(`krisas/${id}`);
+    } catch (error) {
+      log.error((error as Error).message);
+    }
+  };
+
+  return { getKrisas, getKrisaById };
 };
 
 export default useKrisaApi;

@@ -1,5 +1,5 @@
 import { type Context } from "grammy";
-import { Command } from "./command.class.js";
+import { Command } from "./Command.class.js";
 import logger from "../logger/logger.js";
 
 const log = logger("commands: randomKrisa");
