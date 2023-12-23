@@ -1,8 +1,7 @@
-import { type Telegraf } from "telegraf";
-import { type BotContextInterface } from "../services/context/context.interface";
+import { type Bot } from "grammy";
 
 export abstract class Command {
-  constructor(public bot: Telegraf<BotContextInterface>) {}
+  constructor(public bot: Bot) {}
 
   abstract handle(): void;
 }
