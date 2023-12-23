@@ -1,4 +1,4 @@
-import { type Context } from "telegraf";
+import { type Context } from "grammy";
 
 export interface SessionData {
   krisaLikes: boolean;

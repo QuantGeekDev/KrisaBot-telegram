@@ -1,6 +1,6 @@
 import { type DotenvParseOutput, config } from "dotenv";
-import { type ConfigServiceInterface } from "./config.interface";
-import logger from "../../logger/logger";
+import { type ConfigServiceInterface } from "./config.interface.js";
+import logger from "../../logger/logger.js";
 
 class ConfigService implements ConfigServiceInterface {
   public logger = logger("config:");
