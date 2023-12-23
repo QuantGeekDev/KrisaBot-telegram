@@ -1,9 +1,10 @@
 import { type ConfigServiceInterface } from "./services/config/config.interface.js";
 import ConfigService from "./services/config/config.service.js";
-import { Telegraf, session } from "telegraf";
+import { Telegraf } from "telegraf";
 import { type BotContextInterface } from "./services/context/context.interface.js";
 import { type Command } from "./commands/command.class.js";
 import { StartCommand } from "./commands/start.command.js";
+import LocalSession from "telegraf-session-local";
 
 class Bot {
   bot: Telegraf<BotContextInterface>;
@@ -13,7 +14,9 @@ class Bot {
       this.configService.get("TELEGRAM_TOKEN"),
     );
 
-    this.bot.use(session());
+    this.bot.use(
+      new LocalSession({ database: "krisaSession.json" }).middleware(),
+    );
   }
 
   init = async () => {
