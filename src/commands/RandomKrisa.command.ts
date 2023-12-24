@@ -10,10 +10,13 @@ export class RandomKrisaCommand extends Command {
         throw new Error("Error getting krisa");
       }
 
-      const { imageUrl } = randomKrisa;
+      const { imageUrl, krisaNumber } = randomKrisa;
 
-      // eslint-disable-next-line @typescript-eslint/naming-convention
-      await ctx.replyWithPhoto(imageUrl, { reply_markup: moreKrisaMenu });
+      await ctx.replyWithPhoto(imageUrl, {
+        // eslint-disable-next-line @typescript-eslint/naming-convention
+        reply_markup: moreKrisaMenu,
+        caption: `Krisa #${krisaNumber}`,
+      });
     });
   }
 }
