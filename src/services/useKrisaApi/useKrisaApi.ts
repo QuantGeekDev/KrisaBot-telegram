@@ -1,6 +1,6 @@
 // Import "dotenv/config";
 import axios from "axios";
-import { type KrisaStructure } from "../../types";
+import { type TypedData, type KrisaStructure } from "../../types";
 import logger from "../../logger/logger.js";
 
 const krisaApiUrl = process.env.KRISA_API;
@@ -27,7 +27,10 @@ const useKrisaApi = () => {
 
   const getKrisaById = async (id: string): Promise<KrisaStructure | void> => {
     try {
-      await axios.get(`krisas/${id}`);
+      const {
+        data: { krisa },
+      }: TypedData<KrisaStructure> = await axios.get(`krisas/${id}`);
+      return krisa;
     } catch (error) {
       log.error((error as Error).message);
     }

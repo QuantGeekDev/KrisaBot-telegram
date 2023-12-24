@@ -3,3 +3,7 @@ export interface KrisaStructure {
   krisaNumber: number;
   imageUrl: string;
 }
+
+export interface TypedData<Type> {
+  data: { krisa: Type };
+}

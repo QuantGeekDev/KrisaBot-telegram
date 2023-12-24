@@ -6,7 +6,10 @@ import { StartCommand } from "./commands/start.command.js";
 import { Bot as GrammyBot } from "grammy";
 import { RandomKrisaCommand } from "./commands/RandomKrisa.command.js";
 import { FindKrisaCommand } from "./commands/FindKrisa.command.js";
+import logger from "./logger/logger.js";
+import commandDescriptions from "./services/commandDescriptions/commandDescriptions.js";
 
+const log = logger("app:");
 class Bot {
   bot: GrammyBot;
   commands: Command[] = [];
@@ -25,6 +28,9 @@ class Bot {
       command.handle();
     }
 
+    await this.bot.api.setMyCommands(commandDescriptions);
+
+    log.success("Launching Krisa Bot");
     await this.bot.start();
   };
 }

@@ -7,7 +7,7 @@ const log = logger("commands: randomKrisa");
 
 export class RandomKrisaCommand extends Command {
   handle() {
-    this.bot.command("randomKrisa", async (ctx: Context) => {
+    this.bot.command("randomkrisa", async (ctx: Context) => {
       log.info(JSON.stringify(ctx));
       const randomKrisa = await getRandomKrisa();
       if (!randomKrisa) {
