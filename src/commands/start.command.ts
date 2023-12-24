@@ -1,11 +1,9 @@
-import { type Context } from "grammy";
-import { Command } from "./command.class.js";
+import { Command } from "./Command.class.js";
 
 export class StartCommand extends Command {
   handle() {
-    this.bot.command("start", async (ctx: Context) => {
-      console.log(ctx);
-      await ctx.reply("Wubbalubbadubdub");
-    });
+    const welcomeText = "🐀🧀 \n Welcome to the krisa's lair!";
+
+    this.bot.command("start", async (ctx) => ctx.reply(welcomeText));
   }
 }

@@ -1,15 +1,16 @@
 import { type DotenvParseOutput, config } from "dotenv";
 import { type ConfigServiceInterface } from "./config.interface.js";
-import logger from "../../logger/logger.js";
+import debugCreator from "debug";
+import chalk from "chalk";
 
+const debug = debugCreator("app:services:configService");
 class ConfigService implements ConfigServiceInterface {
-  public logger = logger("config:");
   private readonly config: DotenvParseOutput;
 
   constructor() {
     const { error, parsed } = config();
     if (error) {
-      this.logger.error(error.message);
+      debug(chalk.red(error.message));
       throw new Error("Couldn't find .env file");
     }
 
