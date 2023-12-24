@@ -1,7 +1,7 @@
 import chalk from "chalk";
 import debugCreator from "debug";
 
-const logger = (level: string) => {
+const logger = (level: string): void => {
   const debug: debugCreator.Debugger = debugCreator(`${level}`);
 
   const info = (text: string) => {
