@@ -13,7 +13,9 @@ export class FindKrisaCommand extends Command {
       const krisaId = ctx.match;
       if (!krisaId) {
         debug(chalk.red("Missing krisa number"));
-        await ctx.reply("Please enter a krisa number to find");
+        await ctx.reply(
+          "Please enter a krisa number to find.\nExample: /findkrisa 101",
+        );
         return;
       }
 
