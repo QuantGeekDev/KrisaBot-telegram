@@ -1,10 +1,10 @@
-import logger from "../../logger/logger.js";
+import debugCreator from "debug";
 import { type KrisaStructure } from "../../types.js";
 import useKrisaApi from "../useKrisaApi/useKrisaApi.js";
+import chalk from "chalk";
 
 const { getKrisas } = useKrisaApi();
-
-const log = logger("services: krisa: getRandomKrisa");
+const debug = debugCreator("services: krisa: getRandomKrisa");
 
 const getRandomKrisa = async (): Promise<KrisaStructure | undefined> => {
   let krisas: KrisaStructure[];
@@ -14,7 +14,7 @@ const getRandomKrisa = async (): Promise<KrisaStructure | undefined> => {
       throw new Error("Error getting krisas from API");
     }
   } catch (error) {
-    log.error((error as Error).message);
+    debug(chalk.red((error as Error).message));
     throw new Error("Error getting krisas from API");
   }
 
@@ -24,7 +24,7 @@ const getRandomKrisa = async (): Promise<KrisaStructure | undefined> => {
     const randomKrisa = krisas[randomNumber];
     return randomKrisa;
   } catch (error) {
-    log.error((error as Error).message);
+    debug(chalk.red((error as Error).message));
   }
 };
 

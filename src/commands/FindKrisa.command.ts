@@ -1,26 +1,26 @@
-import { type Context } from "grammy";
 import { Command } from "./Command.class.js";
-import logger from "../logger/logger.js";
 import useKrisaApi from "../services/useKrisaApi/useKrisaApi.js";
-
-const log = logger("app:commands: findKrisa");
+import debugCreator from "debug";
+import chalk from "chalk";
 
 const { getKrisaById } = useKrisaApi();
 
+const debug = debugCreator("app:commands:findkrisacommand");
+
 export class FindKrisaCommand extends Command {
   handle = async () => {
-    this.bot.command("findkrisa", async (ctx: Context) => {
+    this.bot.command("findkrisa", async (ctx) => {
       const krisaId = ctx.match;
       if (!krisaId) {
-        log.error("Missing krisa number");
+        debug(chalk.red("Missing krisa number"));
         await ctx.reply("Please enter a krisa number to find");
         return;
       }
 
-      const requestedKrisa = await getKrisaById(krisaId as string);
+      const requestedKrisa = await getKrisaById(krisaId)!;
       if (!requestedKrisa) {
-        log.error(`Error getting Krisa #${krisaId as string}`);
-        await ctx.reply(`Error getting Krisa #${krisaId as string}`);
+        debug(chalk.red(`Error getting Krisa #${krisaId}`));
+        await ctx.reply(`Error getting Krisa #${krisaId}`);
         return;
       }
 

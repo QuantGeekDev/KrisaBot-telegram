@@ -1,11 +1,10 @@
-import { type Context } from "grammy";
 import { Command } from "./Command.class.js";
 import getRandomKrisa from "../services/krisa/getRandomKrisa.js";
 
 export class RandomKrisaCommand extends Command {
   handle() {
-    this.bot.command("randomkrisa", async (ctx: Context) => {
-      const randomKrisa = await getRandomKrisa();
+    this.bot.command("randomkrisa", async (ctx): Promise<void> => {
+      const randomKrisa = (await getRandomKrisa())!;
       if (!randomKrisa) {
         throw new Error("Error getting krisa");
       }
