@@ -1,5 +1,6 @@
 import { Command } from "./Command.class.js";
 import getRandomKrisa from "../services/krisa/getRandomKrisa.js";
+import moreKrisaMenu from "../menus/startMenu/moreKrisaMenu.js";
 
 export class RandomKrisaCommand extends Command {
   handle() {
@@ -11,7 +12,8 @@ export class RandomKrisaCommand extends Command {
 
       const { imageUrl } = randomKrisa;
 
-      await ctx.replyWithPhoto(imageUrl);
+      // eslint-disable-next-line @typescript-eslint/naming-convention
+      await ctx.replyWithPhoto(imageUrl, { reply_markup: moreKrisaMenu });
     });
   }
 }
