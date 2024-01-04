@@ -3,10 +3,12 @@ import { Menu } from "@grammyjs/menu";
 import getRandomKrisa from "../../services/krisa/getRandomKrisa.js";
 import moreKrisaMenu from "./moreKrisaMenu.js";
 
-const krisaWebsiteUrl = "https://crazykrisa.netlify.app/home";
-
 const button1Label = "🐀 Get Random Krisa";
 const button2Label = "🌐 Krisa Website";
+const krisaWebsiteUrl = "https://crazykrisa.netlify.app/home";
+const button3Label = "💎 Krisa NFT Collection";
+const krisaNftCollectionUrl =
+  "https://getgems.io/collection/EQBxph2SAh7TPMThKd29_nx18uuhrc3RUsRqswlQgAWK4HoB";
 
 export const startMenu = new Menu("Start-Menu")
   .text(button1Label, async (ctx) => {
@@ -23,4 +25,6 @@ export const startMenu = new Menu("Start-Menu")
     });
   })
   .row()
-  .url(button2Label, krisaWebsiteUrl);
+  .url(button2Label, krisaWebsiteUrl)
+  .row()
+  .url(button3Label, krisaNftCollectionUrl);
