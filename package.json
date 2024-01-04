@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "build:dev": "tsc --watch",
-    "start": "node .",
+    "start": "tsc && node .",
     "lint": "eslint . --ext .ts",
     "start:dev": "node --watch .",
     "prepare": "husky install"
