@@ -6,6 +6,7 @@ const button1Label = "💫Pull another card";
 const moreTarotMenu = new Menu("More-tarot").text(button1Label, async (ctx) => {
   const randomTarot = await getRandomTarot();
   if (!randomTarot) {
+    await ctx.reply("Error getting tarot");
     return;
   }
 
