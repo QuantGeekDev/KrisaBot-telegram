@@ -10,12 +10,12 @@ export class TarotCommand extends Command {
         throw new Error("Error getting krisa");
       }
 
-      const { imageUrl } = randomTarot;
+      const { imageUrl, fate } = randomTarot;
 
       await ctx.replyWithPhoto(imageUrl, {
         // eslint-disable-next-line @typescript-eslint/naming-convention
         reply_markup: moreKrisaMenu,
-        caption: `Tarot Krisa`,
+        caption: fate,
       });
     });
   }
