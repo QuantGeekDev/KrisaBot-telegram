@@ -1,6 +1,6 @@
 import { Command } from "./Command.class.js";
-import moreKrisaMenu from "../menus/startMenu/moreKrisaMenu.js";
 import getRandomTarot from "../services/krisa/getRandomTarot.js";
+import moreTarotMenu from "../menus/startMenu/moreTarotMenu.js";
 
 export class TarotCommand extends Command {
   handle() {
@@ -14,7 +14,7 @@ export class TarotCommand extends Command {
 
       await ctx.replyWithPhoto(imageUrl, {
         // eslint-disable-next-line @typescript-eslint/naming-convention
-        reply_markup: moreKrisaMenu,
+        reply_markup: moreTarotMenu,
         caption: fate,
       });
     });
