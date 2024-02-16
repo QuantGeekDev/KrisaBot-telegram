@@ -4,6 +4,12 @@ export interface KrisaStructure {
   imageUrl: string;
 }
 
+export interface TarotStructure {
+  _id: string;
+  tarotNumber: number;
+  imageUrl: string;
+}
+
 export interface TypedData<Type> {
   data: { krisa: Type };
 }
