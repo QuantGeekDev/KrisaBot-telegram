@@ -11,6 +11,7 @@ import { FindKrisaCommand } from "./commands/FindKrisa.command.js";
 import commandDescriptions from "./services/commandDescriptions/commandDescriptions.js";
 import { startMenu } from "./menus/startMenu/startMenu.js";
 import moreKrisaMenu from "./menus/startMenu/moreKrisaMenu.js";
+import { TarotCommand } from "./commands/tarot.command.js";
 
 const debug = debugCreator("app:");
 
@@ -30,6 +31,7 @@ class Bot {
       new StartCommand(this.bot),
       new RandomKrisaCommand(this.bot),
       new FindKrisaCommand(this.bot),
+      new TarotCommand(this.bot),
     ];
 
     for (const command of this.commands) {
