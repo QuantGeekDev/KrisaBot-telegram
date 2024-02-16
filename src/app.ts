@@ -12,6 +12,7 @@ import commandDescriptions from "./services/commandDescriptions/commandDescripti
 import { startMenu } from "./menus/startMenu/startMenu.js";
 import moreKrisaMenu from "./menus/startMenu/moreKrisaMenu.js";
 import { TarotCommand } from "./commands/tarot.command.js";
+import moreTarotMenu from "./menus/startMenu/moreTarotMenu.js";
 
 const debug = debugCreator("app:");
 
@@ -26,6 +27,7 @@ class Bot {
   init = async () => {
     this.bot.use(moreKrisaMenu);
     this.bot.use(startMenu);
+    this.bot.use(moreTarotMenu);
 
     this.commands = [
       new StartCommand(this.bot),
