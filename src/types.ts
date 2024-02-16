@@ -8,6 +8,7 @@ export interface TarotStructure {
   _id: string;
   tarotNumber: number;
   imageUrl: string;
+  fate: string;
 }
 
 export interface TypedData<Type> {
